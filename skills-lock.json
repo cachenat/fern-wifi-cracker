@@ -114,6 +114,12 @@
       "sourceType": "github",
       "skillPath": "skills/remotion/SKILL.md",
       "computedHash": "829d9e0b1c5a73699f527ba1d3e4e10edb5bf66052a83d488617d9ebf255a332"
+    },
+    "obsidian-second-brain": {
+      "source": "eugeniughelbur/obsidian-second-brain",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "819bea44322465fe2a0ede6e10afc2b00be3786925ecfb8427ce6523e03e5916"
     }
   }
 }
