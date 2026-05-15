@@ -108,6 +108,12 @@
       "sourceType": "github",
       "skillPath": "skills/claude-api/SKILL.md",
       "computedHash": "617512252b92969fbbe71cb0bc5f18641e1b8ee00a799cd3276a0f28f7a2e017"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion/SKILL.md",
+      "computedHash": "829d9e0b1c5a73699f527ba1d3e4e10edb5bf66052a83d488617d9ebf255a332"
     }
   }
 }
