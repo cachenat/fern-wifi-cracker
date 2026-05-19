@@ -109,11 +109,17 @@
       "skillPath": "skills/claude-api/SKILL.md",
       "computedHash": "617512252b92969fbbe71cb0bc5f18641e1b8ee00a799cd3276a0f28f7a2e017"
     },
-    "arcads-external-api": {
-      "source": "krusemediallc/arcads-claude-code",
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
       "sourceType": "github",
-      "skillPath": "skills/arcads-external-api/SKILL.md",
-      "computedHash": "c7856ff531e5b7780e3b116133401e8c6489a241364434c54591dfe77ca33873"
+      "skillPath": "skills/remotion/SKILL.md",
+      "computedHash": "829d9e0b1c5a73699f527ba1d3e4e10edb5bf66052a83d488617d9ebf255a332"
+    },
+    "obsidian-second-brain": {
+      "source": "eugeniughelbur/obsidian-second-brain",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "819bea44322465fe2a0ede6e10afc2b00be3786925ecfb8427ce6523e03e5916"
     }
   }
 }
