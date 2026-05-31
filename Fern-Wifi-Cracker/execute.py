@@ -4,6 +4,7 @@ import os
 import sys
 import time
 import shutil
+import argparse
 import importlib
 import subprocess
 
@@ -110,6 +111,14 @@ from gui import *
 
 
 if __name__ == '__main__':
+    _rc_parser = argparse.ArgumentParser(add_help=False)
+    _rc_parser.add_argument(
+        '--remote-control', nargs='?', const=8765, type=int, metavar='PORT',
+        help='Enable remote control API on given port (default: 8765)',
+    )
+    _rc_args, _remaining = _rc_parser.parse_known_args()
+    sys.argv = [sys.argv[0]] + _remaining
+
     app = QtWidgets.QApplication(sys.argv)
     run = fern.mainwindow()
 
@@ -120,6 +129,14 @@ if __name__ == '__main__':
     app.processEvents()
 
     time.sleep(3)
+
+    if _rc_args.remote_control is not None:
+        from core.remote_control import RemoteControlServer
+        _rc_server = RemoteControlServer(
+            port=_rc_args.remote_control,
+            get_interface=lambda: run.monitor_interface,
+        )
+        _rc_server.start()
 
     screen_splash.finish(run)
     run.show()
