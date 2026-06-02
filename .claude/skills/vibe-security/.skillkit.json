@@ -1,0 +1,9 @@
+{
+  "name": "vibe-security",
+  "description": "Audits codebases for common security vulnerabilities introduced by AI coding assistants.",
+  "source": "raroque/vibe-security-skill",
+  "sourceType": "github",
+  "subpath": "vibe-security",
+  "installedAt": "2026-06-02T00:00:00.000Z",
+  "enabled": true
+}
