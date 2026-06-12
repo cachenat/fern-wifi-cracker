@@ -1,36 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "humanizer": {
-      "source": "blader/humanizer",
-      "sourceType": "github",
-      "skillPath": "SKILL.md",
-      "computedHash": "b813857f183da05d08d5a80adac671df94c139f855809bd47ab8b7bb245546a2"
-    },
-    "xlsx": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/xlsx/SKILL.md",
-      "computedHash": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc"
-    },
-    "docx": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/docx/SKILL.md",
-      "computedHash": "cfbabd72b1aec7dfaad988fb6e5e16b27dc744b9a00cae15db9045e95f53903e"
-    },
-    "pptx": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/pptx/SKILL.md",
-      "computedHash": "e5b0df918cbe9d62508b3cf808d73899633f82fc19f6258a25ef9f0de7e62125"
-    },
-    "pdf": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/pdf/SKILL.md",
-      "computedHash": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c"
-    },
     "algorithmic-art": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -43,11 +13,23 @@
       "skillPath": "skills/brand-guidelines/SKILL.md",
       "computedHash": "1120b3769e2985cefb3d25be981b1f914abeba57ae079b83c20c666c164fa9fe"
     },
+    "browser-use": {
+      "source": "browser-use/browser-use",
+      "sourceType": "github",
+      "skillPath": "skills/browser-use/SKILL.md",
+      "computedHash": "c2f6bb1deba21399380e80e9eab963836c50ae77ad2dea21bd5ea10e66da707e"
+    },
     "canvas-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
       "skillPath": "skills/canvas-design/SKILL.md",
       "computedHash": "a1f288079624402f30682753c1d43920b6664785698d21d3e7aa197450a6448b"
+    },
+    "claude-api": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/claude-api/SKILL.md",
+      "computedHash": "617512252b92969fbbe71cb0bc5f18641e1b8ee00a799cd3276a0f28f7a2e017"
     },
     "doc-coauthoring": {
       "source": "anthropics/skills",
@@ -55,11 +37,23 @@
       "skillPath": "skills/doc-coauthoring/SKILL.md",
       "computedHash": "2e47d78846faeea4a56e9809c52700087a15a2155a3f293a3efbaded81398ef4"
     },
+    "docx": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/docx/SKILL.md",
+      "computedHash": "cfbabd72b1aec7dfaad988fb6e5e16b27dc744b9a00cae15db9045e95f53903e"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
       "skillPath": "skills/frontend-design/SKILL.md",
       "computedHash": "b81e2ff87ed8fa4d6c377ccb127a7254c9e6a77e3ae94f21e6b514f7bb2945a0"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "b813857f183da05d08d5a80adac671df94c139f855809bd47ab8b7bb245546a2"
     },
     "internal-comms": {
       "source": "anthropics/skills",
@@ -72,6 +66,30 @@
       "sourceType": "github",
       "skillPath": "skills/mcp-builder/SKILL.md",
       "computedHash": "0f4592dcb53cf2b5d6b7febee6b4152018b565551a1c29e3c612f57b218ab295"
+    },
+    "obsidian-second-brain": {
+      "source": "eugeniughelbur/obsidian-second-brain",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "819bea44322465fe2a0ede6e10afc2b00be3786925ecfb8427ce6523e03e5916"
+    },
+    "pdf": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pdf/SKILL.md",
+      "computedHash": "9f78b8359fbd4943ad260a7a1e436e5a96503406d6c34e99f69223d647d85b9c"
+    },
+    "pptx": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pptx/SKILL.md",
+      "computedHash": "e5b0df918cbe9d62508b3cf808d73899633f82fc19f6258a25ef9f0de7e62125"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion/SKILL.md",
+      "computedHash": "829d9e0b1c5a73699f527ba1d3e4e10edb5bf66052a83d488617d9ebf255a332"
     },
     "skill-creator": {
       "source": "anthropics/skills",
@@ -103,23 +121,11 @@
       "skillPath": "skills/webapp-testing/SKILL.md",
       "computedHash": "51b7349e77ec63b7744a6f63647e7566a0b4d2e301121cc10e8c2113af6556a2"
     },
-    "claude-api": {
+    "xlsx": {
       "source": "anthropics/skills",
       "sourceType": "github",
-      "skillPath": "skills/claude-api/SKILL.md",
-      "computedHash": "617512252b92969fbbe71cb0bc5f18641e1b8ee00a799cd3276a0f28f7a2e017"
-    },
-    "remotion-best-practices": {
-      "source": "remotion-dev/skills",
-      "sourceType": "github",
-      "skillPath": "skills/remotion/SKILL.md",
-      "computedHash": "829d9e0b1c5a73699f527ba1d3e4e10edb5bf66052a83d488617d9ebf255a332"
-    },
-    "obsidian-second-brain": {
-      "source": "eugeniughelbur/obsidian-second-brain",
-      "sourceType": "github",
-      "skillPath": "SKILL.md",
-      "computedHash": "819bea44322465fe2a0ede6e10afc2b00be3786925ecfb8427ce6523e03e5916"
+      "skillPath": "skills/xlsx/SKILL.md",
+      "computedHash": "dd316db7785a6be12966c2a2d848931fbf5f518b3cdb0a66fa62ee835ead1cfc"
     }
   }
 }
