@@ -1,4 +1,5 @@
 import os
+import re
 import tempfile
 import subprocess
 import shutil
@@ -10,7 +11,7 @@ from core.fern import *
 #
 # WPS Variables
 #
-wps_functions = object()        # Instance of WPS class
+wps_functions = object()        # Instance of WPS class 
 
 
 #
@@ -55,15 +56,15 @@ direc = tempfile.gettempdir() + os.sep
 log_direc = 'fern-log'
 tmp_direc = os.listdir(direc)                                    # list/tmp/
 directory = os.getcwd()
+temp_log_path = direc + log_direc
 
 #
 # Create temporary log directory
 #
-if 'fern-log' in tmp_direc:
-    shutil.rmtree(direc + log_direc,ignore_errors=True)    # Delete directory in /fern-log if it already exists in /tmp/
-    os.mkdir(direc + log_direc)
-else:
-    os.mkdir(direc + log_direc)                                 # Create /tmp/fern-log/
+if os.path.exists(temp_log_path):
+    shutil.rmtree(temp_log_path,ignore_errors=True)    # Delete directory in /fern-log if it already exists in /tmp/
+
+os.mkdir(temp_log_path)                                 # Create /tmp/fern-log/
 
 #
 # Create Sub Temporary directory in /tmp/fern-log
@@ -79,6 +80,8 @@ def exec_command(command,directory = None):
     return(ret)
 
 
+def is_mac_address(data):
+    return bool(re.match(r'^' + r'[\:\-]'.join([r'([0-9a-f]{2})'] * 6) + r'$', data.lower()))
 
 
 ################## TOOL BOX VARIABLES #######################

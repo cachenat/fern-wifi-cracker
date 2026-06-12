@@ -22,7 +22,7 @@ class wpa_attack_dialog(QtWidgets.QDialog,Ui_attack_panel):
     client_is_there_signal = QtCore.pyqtSignal()
     client_not_in_list_signal = QtCore.pyqtSignal()
     update_word_signal = QtCore.pyqtSignal('QString')
-    update_progressbar_signal = QtCore.pyqtSignal()
+    update_progressbar_signal = QtCore.pyqtSignal() 
     update_speed_signal = QtCore.pyqtSignal('QString')
     wpa_key_found_signal = QtCore.pyqtSignal()
     deauthenticating_signal = QtCore.pyqtSignal()
@@ -153,12 +153,12 @@ class wpa_attack_dialog(QtWidgets.QDialog,Ui_attack_panel):
 
         if(key_type == "WPS PIN"):
             key_string = self.wps_pin_label.text()
-            actual_key = re.findall("WPS PIN: ([\S \w]+)</font>",key_string)
+            actual_key = re.findall(r"WPS PIN: ([\S \w]+)</font>",key_string)
             if(actual_key):
                 self.clipboard_key = actual_key[0]
         else:
             key_string = self.key_label.text()
-            actual_key = re.findall("WPA KEY: ([\S \w]+)</font>",key_string)
+            actual_key = re.findall(r"WPA KEY: ([\S \w]+)</font>",key_string)
             if(actual_key):
                 self.clipboard_key = actual_key[0]
         self.clipbord.setText(self.clipboard_key)
@@ -520,20 +520,30 @@ class wpa_attack_dialog(QtWidgets.QDialog,Ui_attack_panel):
 
 
     def client_update(self):
-        wpa_clients_str = reader('/tmp/fern-log/WPA/zfern-wpa-01.csv')
-        wpa_clients_sort = wpa_clients_str[wpa_clients_str.index('Probed ESSIDs'):-1]
+        try:
+            path = '/tmp/fern-log/WPA/zfern-wpa-01.csv'
 
-        for line in wpa_clients_sort.splitlines():
-            result = re.findall("(([0-9A-F]{2}:){5}[0-9A-F]{2})",line)
-            if(len(result) == 2):
-                if(result[1][0] == variables.victim_mac):
-                    self.client_list.append(result[0][0])
+            with open(path, newline='') as csvfile:
+                scanData = csv.reader(csvfile)
+                for row in scanData:
+                    length = len(row)
+                    if length > 0:
+                        if (variables.is_mac_address(row[0])) and (length >= 6) and (length < 13):
+                            station = row[0].strip(" ")
+                            bssid = row[5].strip(" ")
+
+                            if bssid == variables.victim_mac:
+                                self.client_list.append(station)
+
+        except Exception:
+            pass
+
 
 
     def launch_brutefore(self):
-        current_word_regex = re.compile("Current passphrase: ([\w\s!@#$%^&*()-=_+]+)",re.IGNORECASE)
-        keys_speed_regex = re.compile("(\d+.?\d+) k/s",re.IGNORECASE)
-        keys_tested_regex = re.compile("(\d+) keys tested",re.IGNORECASE)
+        current_word_regex = re.compile(r"Current passphrase: ([\w\s!@#$%^&*()-=_+]+)",re.IGNORECASE)
+        keys_speed_regex = re.compile(r"(\d+.?\d+) k/s",re.IGNORECASE)
+        keys_tested_regex = re.compile(r"(\d+) keys tested",re.IGNORECASE)
 
         crack_process = subprocess.Popen("cd /tmp/fern-log/WPA-DUMP/ \naircrack-ng -a 2 -w '%s' wpa_dump-01.cap -l wpa_key.txt" % (self.wordlist),
                              shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,stdin=subprocess.PIPE)
@@ -764,10 +774,12 @@ class wpa_attack_dialog(QtWidgets.QDialog,Ui_attack_panel):
         self.progress_bar_max = line_count(filename)
         self.wordlist_lines_counted_signal.emit(filename)
 
-
     def set_progress_bar(self,filename):
+        int_max = 2147483630									# Avoid a C based interger overflow
+        if self.progress_bar_max > int_max:
+            self.progress_bar_max = int_max
         self.progressBar.setMaximum(self.progress_bar_max)
-        self.settings.create_settings(filename,str(self.progress_bar_max))
+        self.settings.create_settings(filename, str(self.progress_bar_max))
 
 
 
